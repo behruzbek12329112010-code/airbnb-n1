@@ -7,10 +7,10 @@ import { useAuth } from "./useAuth";
 import { useMutation, useQuery } from "@apollo/client/react";
 import CloseIcon from "@mui/icons-material/Close";
 import DeleteIcon from "@mui/icons-material/Delete";
-import Header from "./header";
 import FooterAirbnb from "./Footer";
 import { useNavigate } from "react-router";
 import { OrbitProgress } from "react-loading-indicators";
+import Header from "./Header";
 
 const FAV_QUERY = gql`
   query Favorites {

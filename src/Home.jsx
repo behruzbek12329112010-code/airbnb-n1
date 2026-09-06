@@ -17,7 +17,7 @@ import { Link } from "react-router";
 import SignUp from "./SignUp";
 import "./Pages.css";
 import FooterAirbnb from "./Footer";
-import Header from "./header";
+import Header from "./Header";
 import { OrbitProgress } from "react-loading-indicators";
 
 const LISTINGS_QUERY = gql`
