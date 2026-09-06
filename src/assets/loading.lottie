@@ -1,0 +1,10 @@
+import loadingAnimation from "./loading.lottie";
+
+{loading && (
+  <DotLottieReact
+    src={loadingAnimation}
+    loop
+    autoplay
+    style={{ width: "200px", height: "200px" }}
+  />
+)}

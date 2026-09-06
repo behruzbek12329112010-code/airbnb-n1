@@ -1,0 +1,12 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.header-container {
+  background-color: rgb(241, 241, 240);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Yengil soya */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  padding: 12px 20px;
+}

@@ -1,0 +1,160 @@
+.footerWrapper {
+  width: 100%;
+  padding: 50px 7%;
+  background: #f7f7f7;
+  box-sizing: border-box;
+}
+
+.footer {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.footerBox {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footerBox h4 {
+  margin: 0 0 8px;
+  font-size: 16px;
+  color: #222;
+}
+
+.footerBox a {
+  color: #555;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footerBox a:hover {
+  text-decoration: underline;
+  color: #222;
+}
+
+.footerWrapper hr {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 0 auto 25px;
+  max-width: 1200px;
+}
+
+.footerBottom {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  font-size: 13px;
+}
+
+.footerBottom a {
+  color: #222;
+}
+
+.footerBottomRight {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  white-space: nowrap;
+}
+
+.footerBottomRight ion-icon {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 900px) {
+  .footerWrapper {
+    padding: 40px 5%;
+  }
+
+  .footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  .footerBottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footerWrapper {
+    padding: 35px 20px 20px;
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  .footerBox {
+    width: 100%;
+  }
+
+  .footerBox h4 {
+    font-size: 16px;
+  }
+
+  .footerBox a {
+    font-size: 14px;
+  }
+
+  .footerBottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+
+    width: 100%;
+  }
+
+  .footerBottom > div:first-child {
+    width: 100%;
+  }
+
+  .footerBottomRight {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    white-space: normal;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .footerWrapper {
+    padding: 30px 15px 20px;
+  }
+
+  .footer {
+    gap: 30px;
+  }
+
+  .footerBox a {
+    font-size: 13px;
+  }
+
+  .footerBottom {
+    font-size: 12px;
+  }
+
+  .footerBottomRight {
+    gap: 12px;
+  }
+}
