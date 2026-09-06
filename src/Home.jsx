@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 import { useMutation, useQuery } from "@apollo/client/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "./useAuth";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
@@ -19,6 +19,7 @@ import "./Pages.css";
 import FooterAirbnb from "./Footer";
 import Header from "./Header";
 import { OrbitProgress } from "react-loading-indicators";
+import { toast } from "react-toastify";
 
 const LISTINGS_QUERY = gql`
   query Listings(
@@ -81,10 +82,25 @@ function Listings() {
       maxPrice: maxPrice ? parseInt(maxPrice) : undefined,
     },
   });
-  const [setFav] = useMutation(AddFavorute);
+  const [setFav, { data: fav, error: err }] = useMutation(AddFavorute, {
+    onCompleted: () => {
+      console.log("dad");
+
+      toast.message("Qo'shildi");
+    },
+    onError: (err) => toast.error(err),
+  });
   const totalPages = data?.listings?.pagination?.totalPages;
 
   console.log(accessToken);
+
+  useEffect(() => {
+    if (fav?.addFavorite) {
+      toast.success("Qo'shildi");
+    } else {
+      toast.error(err);
+    }
+  }, [fav]);
 
   return (
     <>
@@ -184,7 +200,11 @@ function Listings() {
 
                   <IconButton
                     onClick={() =>
-                      setFav({ variables: { listingId: item.id } })
+                      setFav({
+                        variables: { listingId: item.id },
+                        onCompleted: () => toast.message("Qo'shildi"),
+                        onError: (err) => toast.error(err),
+                      })
                     }
                     sx={{
                       position: "absolute",
