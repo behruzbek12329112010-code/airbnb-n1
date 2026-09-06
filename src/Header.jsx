@@ -18,7 +18,7 @@ const Header = ({ search, setSearch }) => {
   };
 
   return (
-    <header className="header-wrapper">
+    <header className="header-wraWpper">
       <div className="header">
         <img
           onClick={() => navigate("/")}

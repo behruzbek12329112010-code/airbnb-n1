@@ -19,7 +19,7 @@ import {
   TextField,
 } from "@mui/material";
 import { useParams } from "react-router";
-import Header from "./header";
+import Header from "./Header";
 import FooterAirbnb from "./Footer";
 import { useForm, Controller } from "react-hook-form";
 import { OrbitProgress } from "react-loading-indicators";
