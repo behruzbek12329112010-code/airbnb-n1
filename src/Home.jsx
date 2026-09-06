@@ -16,6 +16,7 @@ import { deepOrange, deepPurple } from "@mui/material/colors";
 import { Link } from "react-router";
 import SignUp from "./SignUp";
 import "./Pages.css";
+import FavoriteIcon from "@mui/icons-material/Favorite";
 import FooterAirbnb from "./Footer";
 import Header from "./Header";
 import { OrbitProgress } from "react-loading-indicators";
@@ -42,6 +43,7 @@ const LISTINGS_QUERY = gql`
         id
         title
         pricePerNight
+        isFavorite
         rating
         images
       }
@@ -72,7 +74,7 @@ function Listings() {
   const [category, setCategory] = useState("");
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
-  const { data, loading, error } = useQuery(LISTINGS_QUERY, {
+  const { data, loading, error, refetch } = useQuery(LISTINGS_QUERY, {
     variables: {
       limit: 24,
       page: page,
@@ -96,6 +98,7 @@ function Listings() {
 
   useEffect(() => {
     if (fav?.addFavorite) {
+      refetch();
       toast.success("Qo'shildi");
     } else {
       toast.error(err);
@@ -216,7 +219,11 @@ function Listings() {
                       },
                     }}
                   >
-                    <FavoriteBorderIcon color="error" />
+                    {item?.isFavorite ? (
+                      <FavoriteIcon color="error" />
+                    ) : (
+                      <FavoriteBorderIcon color="error" />
+                    )}
                   </IconButton>
                 </Box>
               </div>
